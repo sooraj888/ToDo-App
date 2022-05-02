@@ -6,12 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import Registration from "./Pages/Registration";
+import AppHedder from "./components/AppHedder";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <AppHedder />
     <BrowserRouter>
       <Routes>
         <Route element={<Registration></Registration>} path="/" />

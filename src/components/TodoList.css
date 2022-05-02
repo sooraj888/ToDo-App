@@ -1,0 +1,53 @@
+.TodoMainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgb(0, 0, 0);
+  min-width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+}
+.addTodoContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+.todoItem {
+  padding: 10px;
+  min-width: 300px;
+  border-radius: 10px;
+}
+.addButton {
+  padding: 0px 20px;
+  margin: 0px 10px;
+  border-radius: 10px;
+}
+.todoList {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.button {
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+.delete {
+  background-color: rgb(254, 36, 36);
+  color: white;
+}
+.edit {
+  background-color: rgb(52, 213, 63);
+  color: white;
+}
+.todo {
+  width: 600px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+}

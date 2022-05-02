@@ -5,11 +5,11 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
-import { getDatabase, ref, set, child, get } from "firebase/database";
 import { auth } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
+import "./Registration.css";
 
 const Registration = () => {
   const [registerEmail, setRegisterEmail] = useState("");
@@ -23,21 +23,6 @@ const Registration = () => {
   const [id, setId] = useState("");
 
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (currentUser: any) => {
-  //     setUser(currentUser);
-  //     console.log("currentUser", currentUser?.uid);
-  //     setId(currentUser?.uid);
-  //   });
-  // });
-
-  // useEffect(() => {
-  //   console.log("uuuu", user);
-  //   if (user != null) {
-  //     navigate("/home", { state: user });
-  //   }
-  // }, [user]);
 
   const logintoHomePage = () => {
     navigate("/home");
@@ -81,12 +66,13 @@ const Registration = () => {
   };
 
   return (
-    <div className="App">
+    <div className="App maincontainer">
       {Signtype ? (
-        <div>
-          <h3> Register User </h3>
-          <Box>
+        <div className="maincontainer">
+          <h2> Register User </h2>
+          <Box className={"container"}>
             <input
+              placeholder="Email..."
               type={"text"}
               value={registerEmail}
               onChange={(event: any) => {
@@ -101,41 +87,52 @@ const Registration = () => {
                 setRegisterPassword(event.target.value);
               }}
             />
+
+            <button onClick={register} className={"buttons"}>
+              {" "}
+              Create User
+            </button>
           </Box>
-          <button onClick={register}> Create User</button>
         </div>
       ) : (
-        <Box>
+        <div className="maincontainer">
           <h2> Login </h2>
-          <input
-            type={"text"}
-            placeholder="Email.."
-            value={loginEmail}
-            name="login email"
-            onChange={(event: any) => {
-              setLoginEmail(event.target.value);
-            }}
-          />
-          <input
-            type={"password"}
-            value={loginPassword}
-            placeholder="Password.."
-            name="login password"
-            onChange={(event: any) => {
-              setLoginPassword(event.target.value);
-            }}
-          />
-          <button onClick={login}> Login</button>
-        </Box>
+          <Box className="container">
+            <input
+              type={"text"}
+              placeholder="Email..."
+              value={loginEmail}
+              name="login email"
+              onChange={(event: any) => {
+                setLoginEmail(event.target.value);
+              }}
+            />
+            <input
+              type={"password"}
+              value={loginPassword}
+              placeholder="Password..."
+              name="login password"
+              onChange={(event: any) => {
+                setLoginPassword(event.target.value);
+              }}
+            />
+            <button onClick={login} className={"buttons"}>
+              Login
+            </button>
+          </Box>
+        </div>
       )}
       <h5>OR</h5>
-      <button
+      <Button
+        sx={{ width: "250px" }}
+        variant="contained"
         onClick={() => {
           setSigntype((prev) => !prev);
         }}
       >
         {Signtype ? "Login" : "Create User"}
-      </button>
+      </Button>
+      <br></br>
       <div style={{ color: "red" }}>{fireBaseError}</div>
     </div>
   );

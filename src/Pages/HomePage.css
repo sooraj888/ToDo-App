@@ -1,0 +1,10 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logoutBtn {
+  margin-left: 90%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
